@@ -5,4 +5,36 @@ var dealerAceCount = 0;
 var yourAceCount = 0;
 
 var ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K',]
-const suits = ['♠', '♥', '♣', '♦']
+var suits = ['♠', '♥', '♣', '♦']
+var deck = new Array();
+
+window.onload()
+
+function buildDeck() {
+    let deck = new Array();
+    for (let i = 0; i < ranks.length; i++)
+    {
+        for (let x = 0; x < suits.length; x++)
+        {
+            var weight = parseInt(ranks[i]);
+            if (ranks[i] == 'J' || ranks[i] == 'Q' || ranks[i] == 'K')
+                weight = 10;
+            if (ranks[i] == 'A');
+                weight = 11;
+            let card = { Rank: ranks[i], Suit: suits[x], weight: weight };
+            deck.push(card);
+        }
+        console.log(deck);
+    }
+}
+
+function shuffleDecks() {
+    for (var i = 0; i < 1000; i++){
+        var location1 = Math.floor((Math.random() * deck.length));
+        var location2 = Math.floor((Math.random() * deck.length));
+        var tmp = deck[location1];
+        
+        deck[location1] = deck[location2];
+        deck[location2 = tmp;]
+    }
+}

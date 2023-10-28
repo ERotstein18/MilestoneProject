@@ -3,34 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Black Jack</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="/index.js"></script>
 </head>
 <body>
-    <div id="wrapper">
-        <div id="game">
-            <div id="dealer">
-                <h2>Dealer Hand<span id="dealer-sum"></span></h2>
-                <div id="d-hand">
+   <div class="deck"></div>
+   
+    <div class="casino-game">
+        <div id="dealers-wrap">
+            <div id="dealer-hand">
+                <h2>Dealer Hand<span id="d-hand"></span></h2>
+                <div id="dealer-cards">
+                    <img id="backofCard" src="./DeckofCards/backofthecard.PNG">
+                    <img id="jokerCard" src="./DeckofCards/Joker.png">
                 </div>
             </div>
-            <div id="player">
-                <h2>Player Hand<span id="dealer-sum"></span></h2>
-                <div id="p-hand"></div>
-            </div>
-
-            <div id="actions">
-                <button id="deal" class="btn">Deal</button>
-                <button id="hit" class="btn">Hit</button>
-                <button id="stand" class="btn">Stand</button>
-            </div>
-
-            
         </div>
+
+            <div id="players-wrap">
+                <div id="players-hand">
+                    <div id="player-one">
+                        <h2>Player One Hand<span id="player-onehand"></span></h2>
+                        <div id="player-onedeal">
+                            <button id="btnHit" onclick="dealcards()">Hit</button>
+                            <button id="btnStand" onlclick="dealcards()">Stand</button>
+                        </div>
+                    </div>
+                    <div id="player-two">
+                        <h2>Player Two Hand<span id="player-twohand"></span></h2>
+                        <div id="player-twodeal">
+                            <button id="btnHit" onclick="dealcards()">Hit</button>
+                            <button id="btnStand" onlclick="dealcards()">Stand</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+            <div class="control-bet">
+                <div class="control-wrap">
+                    <div class="wager">
+                        <h3>Player One money:<span class="bank"></span></h2>
+                        <div class="player-bet1">
+                            Bet <input class="wage-bet1" title="Placing your bet" type="number" name="quantity" min="5" max="50" step="5" value="10">
+                        </div>
+                        <h3>Player Two money:<span class="bank"></span></h2>
+                        <div class="player-bet2">
+                            Bet <input class="wage-bet2" title="Placing your bet" type="number" name="quantity" min="5" max="50" step="5" value="10">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
     </div>
-
-
+    <script src="/index.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-h1,h2,h3,p {
+h1,h2,h3 {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
@@ -14,6 +14,10 @@ body {
     text-align: center;
 }
 
+#casino-game {
+    margin:0 auto;
+}
+
 #players-wrap {
     text-align:center;
     height: 150px;
@@ -27,11 +31,7 @@ body {
     font-family: 'Times New Roman', Times, serif;
 }
 
-.casino-game {
-    margin:0 auto;
-}
-
-#dealer-cards img{
+#dealer-cards img {
     height: 175px;
     width: 125px;
     margin: 1px;
@@ -43,7 +43,14 @@ body {
     margin: 1px;
 }
 
-#player-one {
+#player-onedeal {
+    position: relative;
+    padding-right: 30px;
+}
+#btnHit #btnStand {
+    position: absolute;
+    top: 4px;
+    right: 14px;
 }
 
 #player-two img {
@@ -54,7 +61,7 @@ body {
 #player-two {
 }
 
-#game {
+#casino-game {
     border-radius: 5px;
     color: #333;
     background-position: center;

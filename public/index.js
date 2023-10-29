@@ -6,9 +6,18 @@ var yourAceCount = 0;
 
 var ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K',]
 var suits = ['♠', '♥', '♣', '♦']
-var deck = new Array();
+var deck = [];
+var game = [];
+var playerHand = $('#player-one');
+var playerHand = $('#player-two');
+var casino = $('.casino');
 
-window.onload()
+
+window.onload = function () {
+    buildDeck();
+    shuffleDecks();
+    startGame();
+}
 
 function buildDeck() {
     let deck = new Array();
@@ -37,4 +46,11 @@ function shuffleDecks() {
         deck[location1] = deck[location2];
         deck[location2 = tmp;]
     }
+}
+
+const dealHands = () => {
+    dealerHand = [selectRandomCard(), selectRandomCard()];
+    dealerHand.forEach((card, index) => {
+        const newCard = 
+    })
 }

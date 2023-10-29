@@ -1,23 +1,11 @@
-var dealerSum = 0;
-var yourSum = 0;
+let ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K',]
+let suits = ['♠', '♥', '♣', '♦']
+let allDecks = [];
+let game = [];
+let playerOneHand = $('#player-one');
+let playerTwoHand = $('#player-two');
+let casino = $('.casino');
 
-var dealerAceCount = 0;
-var yourAceCount = 0;
-
-var ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K',]
-var suits = ['♠', '♥', '♣', '♦']
-var deck = [];
-var game = [];
-var playerHand = $('#player-one');
-var playerHand = $('#player-two');
-var casino = $('.casino');
-
-
-window.onload = function () {
-    buildDeck();
-    shuffleDecks();
-    startGame();
-}
 
 function buildDeck() {
     let deck = new Array();
@@ -25,7 +13,7 @@ function buildDeck() {
     {
         for (let x = 0; x < suits.length; x++)
         {
-            var weight = parseInt(ranks[i]);
+            let weight = parseInt(ranks[i]);
             if (ranks[i] == 'J' || ranks[i] == 'Q' || ranks[i] == 'K')
                 weight = 10;
             if (ranks[i] == 'A');
@@ -38,19 +26,31 @@ function buildDeck() {
 }
 
 function shuffleDecks() {
-    for (var i = 0; i < 1000; i++){
-        var location1 = Math.floor((Math.random() * deck.length));
-        var location2 = Math.floor((Math.random() * deck.length));
-        var tmp = deck[location1];
+    for (let i = 0; i < 1000; i++){
+        let location1 = Math.floor((Math.random() * deck.length));
+        let location2 = Math.floor((Math.random() * deck.length));
+        let newDeck = allDecks[location1];
         
-        deck[location1] = deck[location2];
-        deck[location2 = tmp;]
+        allDecks[location1] = allDecks[location2];
+        allDecks[location2 = newDeck];
     }
 }
 
-const dealHands = () => {
+function selectRandomCard() {
+    let randomIndex = Math.floor(Math.random() * allDecks.length);
+    let card = allDecks[randomIndex];
+    allDecks.splice(randomIndex, 1);
+    return card;
+}
+    
+    
+function dealHands () {
     dealerHand = [selectRandomCard(), selectRandomCard()];
     dealerHand.forEach((card, index) => {
         const newCard = 
     })
+}
+
+function startGame() {
+   document.getElementById('btnStart').value =
 }

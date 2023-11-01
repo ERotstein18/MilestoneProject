@@ -8,7 +8,7 @@ let casino = $('.casino');
 
 
 function buildDeck() {
-    let deck = new Array();
+    let deck = [];
     for (let i = 0; i < ranks.length; i++)
     {
         for (let x = 0; x < suits.length; x++)
@@ -21,12 +21,12 @@ function buildDeck() {
             let card = { Rank: ranks[i], Suit: suits[x], weight: weight };
             deck.push(card);
         }
-        console.log(deck);
+        return(deck);
     }
 }
 
-function shuffleDecks() {
-    for (let i = 0; i < 1000; i++){
+function shuffleDecks(num) {
+    for (let i = 0; i < num; i++){
         let location1 = Math.floor((Math.random() * deck.length));
         let location2 = Math.floor((Math.random() * deck.length));
         let newDeck = allDecks[location1];

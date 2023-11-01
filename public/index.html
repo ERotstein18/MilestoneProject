@@ -8,56 +8,24 @@
     <script src="index.js"></script>
 </head>
 <body>
-   <div class="deck"></div>
-   
-    <div id="casino-game">
-        <div id="dealers-wrap">
-            <div id="dealer-hand">
-                <h2>Dealer Hand<span id="d-hand"></span></h2>
-                <div id="dealer-cards">
-                    <img id="backofCard" src="./DeckofCards/backofthecard.PNG">
-                    <img id="jokerCard" src="./DeckofCards/Joker.png">
-                </div>
-            </div>
-        </div>
-
-            <div id="players-wrap">
-                <div id="players-hand">
-                    <div id="player-one">
-                        <h2>Player One Hand<span id="player-onehand"></span></h2>
-                        <div id="player-onedeal">
-                            <button id="btnHit" onclick="dealcards()">Hit</button>
-                            <button id="btnStand" onlclick="dealcards()">Stand</button>
-                        </div>
-                    </div>
-                    <div id="player-two">
-                        <h2>Player Two Hand<span id="player-twohand"></span></h2>
-                        <div id="player-twodeal">
-                            <button id="btnHit" onclick="dealcards()">Hit</button>
-                            <button id="btnStand" onlclick="dealcards()">Stand</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
-        </div>
-            <div class="control-bet">
-                <div class="control-wrap">
-                    <div class="wager">
-                        <h3>Player One money:<span class="bank"></span></h2>
-                        <div class="player-bet1">
-                            Bet <input class="wage-bet1" title="Placing your bet" type="number" name="quantity" min="5" max="50" step="5" value="10">
-                        </div>
-                        <h3>Player Two money:<span class="bank"></span></h2>
-                        <div class="player-bet2">
-                            Bet <input class="wage-bet2" title="Placing your bet" type="number" name="quantity" min="5" max="50" step="5" value="10">
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
+    <h2>Dealer Hand<span id="d-hand"></span></h2>
+    <div id="dealer-cards">
+        <img id="hidden" src="./deckofcards/backofthecard.PNG">
+        <img src="./deckofcards/">
     </div>
+
+
+    <h2>Player One:<span id="playerOne-sum"></span></h2>
+    <div id="playerOne-card"></div>
+    <button id="hit">Hit</button>
+    <button id="stay">Stay</button>
+    <p id="results"></p>
+
+    <h2>Player Two:<span id="playerTwo-sum"></span></h2>
+    <div id="playerTwo-card"></div>
+    <button id="hit">Hit</button>
+    <button id="stay">Stay</button>
+    <p id="results"></p>
 
 </body>
 </html>

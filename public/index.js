@@ -8,6 +8,7 @@ var playerOneHandSum = 0;
 var playerTwoHandSum = 0;
 
 var dealerAceCount = 0;
+//keeping the track of Ace
 var playerOneHandAceCount = 0;
 var playerTwoHandAceCount = 0;
 
@@ -66,14 +67,34 @@ function startGame() {
     //console.log(dealerSum);
     while (dealerSum < 17) {
         //creating image tag
-        let dealerCards = document.createElement('img');
+        let cardImg = document.createElement("img");
         let card = allDecks.pop();
-        dealerCards.src = "./DeckofCards" + card + '.png';
+        cardImg.src = "./deckofcards/" + card + ".png";
         dealerSum += getValue(card);
         dealerAceCount += checkAce(card);
-        document.getElementById('dealer-cards').append(dealerCards);
+        document.getElementById('dealer-cards').append(cardImg);
     }
     console.log(dealerSum);
+
+    for (let i = 0; i < 2; i++) {
+        let cardImg = document.createElement('img');
+        let card = allDecks.pop();
+        cardImg.src = './deckofcards/' + card + '.png';
+        playerOneHandSum += getValue(card);
+        playerOneHandAceCount += checkAce(card);
+        document.getElementById("playerOne-card").append(cardImg);
+    }
+    console.log(playerOneHandSum);
+
+    for (let i = 0; i < 2; i++) {
+        let cardImg = document.createElement('img');
+        let card = allDecks.pop();
+        cardImg.src = './deckofcards/' + card + '.png';
+        playerTwoHandSum += getValue(card);
+        playerTwoHandAceCount += checkAce(card);
+        document.getElementById("playerTwo-card").append(cardImg);
+    }
+    console.log(playerTwoHandSum);
 }
  
 function getValue(card) {

@@ -1,4 +1,4 @@
-let game = [];
+//let game = [];
 //let playerOneHand = $('#player-one');
 // let playerTwoHand = $('#player-two');
 //let casino = $('.casino');
@@ -26,8 +26,8 @@ window.onload = function () {
 }
 
 function buildDeck() {
-    let ranks = ['Ace', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King',]
-    let suits = ['♠', '♥', '♣', '♦']
+    let ranks = ["Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King",]
+    let suits = ["♠", "♥", "♣", "♦"]
     allDecks = [];
 
     for (let i = 0; i < suits.length; i++) {
@@ -42,7 +42,7 @@ function createPlayers(playerOneHand) {
     playerOneHand = new Array();
     for (let i = 1; i < playerOneHand; i++){
         var hand = new Array();
-        var playerOneHand = { Name: 'Player' + i, ID: i, Points: 0, Hand: hand };
+        var playerOneHand = { Name:'Player' + i, ID: i, Points: 0, Hand: hand };
         createPlayers.push(playerOneHand);
     }
     
@@ -63,8 +63,7 @@ function startGame() {
 
     //counting the Ace
     dealerAceCount += checkAce(hidden);
-    //console.log(hidden);
-    //console.log(dealerSum);
+  
     while (dealerSum < 17) {
         //creating image tag
         let cardImg = document.createElement("img");
@@ -79,12 +78,14 @@ function startGame() {
     for (let i = 0; i < 2; i++) {
         let cardImg = document.createElement('img');
         let card = allDecks.pop();
-        cardImg.src = './deckofcards/' + card + '.png';
+        cardImg.src = "./deckofcards/" + card + '.png';
         playerOneHandSum += getValue(card);
         playerOneHandAceCount += checkAce(card);
         document.getElementById("playerOne-card").append(cardImg);
     }
     console.log(playerOneHandSum);
+    document.getElementById("btnHit").addEventListener("click", btnHit);
+    document.getElementById("btnStay").addEventListener("click", btnStay);
 
     for (let i = 0; i < 2; i++) {
         let cardImg = document.createElement('img');
@@ -95,11 +96,57 @@ function startGame() {
         document.getElementById("playerTwo-card").append(cardImg);
     }
     console.log(playerTwoHandSum);
+    document.getElementById("btnHit").addEventListener("click", btnHit);
+}
+
+function stay() {
+    dealerSum = reduceAce(dealerSum, dealerAceCount);
+    playerOneHandSum = reduceAce(playerOneHandSum, playerOneHandAceCount);
+    playerTwoHandSum = reduceAce(playerTwoHandSum, playerTwoHandAceCount);
+
+    playHit = false;
+    document.getElementById("hidden").src="./deckofcards/" + hidden + ".png";
+
+    let message = "";
+    if (playerOneHandSum > 21) {
+        message = "Player One Lose!";
+    }
+    else if (dealerSum > 21) {
+        message = "Player One Win!";
+    }
+    else if (playerOneHandSum == dealerSum) {
+        message = "Tie!";
+    }
+    else if (playerOneHandSum > dealerSum) {
+        message = "Player One Lose!"
+    }
+    else if (playerOneHandSum < dealerSum) {
+        message = "Player One Lose!";
+    }
+    document.getElementById("dealerSum").innerText = dealerSum;
+    document.getElementById("playerOneHandSum").innerText = playerOneHandSum;
+    dcoument.getElementById("resultsOne").innerText = message;
+}
+
+function hit() {
+    if (!playHit) {
+        return;
+    }
+    let cardImg = document.createElement('img');
+    let card = allDecks.pop();
+    cardImg.src = './deckofcards/' + card + '.png';
+    playerOneHandSum += getValue(card);
+    playerOneHandAceCount += checkAce(card);
+    document.getElementById("playerOne-card").append(cardImg);
+
+    if (reduceAce(playerOneHandSum, playerOneHandAceCount) > 21) {
+        playHit = false;
+    }
 }
  
 function getValue(card) {
     let data = card.split("-");
-    let value = data[0];
+    let value = data[];
 
     if (isNaN(value)) {
         if (value == "Ace") {
@@ -115,4 +162,12 @@ function checkAce(card) {
         return 1;
     }
     return 0;
+}
+
+function reduceAce(playerOneHandSum, playerOneHandAceCount, playerTwoHandSum, playerTwoHandAceCount) {
+    while (playerOneHandSum > 21 && playerOneHandAceCount > 0) {
+        playerOneHandSum -= 10;
+        playerOneHandAceCount -= 1;
+    }
+    return playerOneHandSum;
 }

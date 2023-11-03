@@ -26,14 +26,21 @@ body {
     margin: 1px;
 }
 
-#hit {
+#btnHit {
     width: 100px;
     height: 50px;
     font-size: 20px;
 }
 
-#stay {
+#btnStay {
     width: 100px;
     height: 50px;
     font-size: 20px;
+}
+
+#wager-bet1 #wager-bet2 {
+    padding:10px;
+    color: #fff;
+    margin: 20px 0 0;
+    background: #993333;
 }

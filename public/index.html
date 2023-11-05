@@ -5,27 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Black Jack</title>
     <link rel="stylesheet" href="style.css">
-    <script src="index.js"></script>
 </head>
 <body>
-    <h2>Dealer Hand<span id="d-hand"></span></h2>
+    <h2>Dealer Hand<span id="dealerHand"></span></h2>
     <div id="dealer-cards">
         <img id="hidden" src="./deckofcards/backofthecard.PNG">
-        <img src="./deckofcards/" alt="random cards">
+    </div>
+    <p id="dealerSum">Dealer Sum</p>
+
+    <div id="player-container">
     </div>
 
-
-    <h2>Player One:<span id="playerOne-sum"></span></h2>
+    <!-- <h2>Player One:<span id="playerOne-sum"></span></h2>
     <div id="playerOne-card"></div>
     <button id="btnHit">Hit</button>
     <button id="btnStay">Stay</button>
+    <p id="playerOneHandSum"></p>
     <p id="resultsOne"></p>
 
     <h2>Player Two:<span id="playerTwo-sum"></span></h2>
     <div id="playerTwo-card"></div>
     <button id="btnHit">Hit</button>
     <button id="btnStay">Stay</button>
-    <p id="resultsTwo"></p>
+    <p id="resultsTwo"></p> -->
     
     <h3>Player 1 money:</h3>
     <div id ="wager-bet1">
@@ -35,7 +37,6 @@
     <div id="wager-bet2">
         Bet<input title="Place your bet" type="number" name="quantity" min="5" max="50" step="5" value="10">
     </div>
-
-
+    <script src="index.js"></script>
 </body>
 </html>

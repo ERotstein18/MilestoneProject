@@ -1,11 +1,17 @@
 h1,h2 {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #fff;
 }
 
 body {
     background: rgb(65, 156, 65);
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
+    text-decoration-color: #fff;
+    background-image: url("backgroundtable.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    justify-content: center;
 }
 
 #dealer-cards img {
@@ -20,13 +26,7 @@ body {
     margin: 1px;
 }
 
-#btnHit {
-    width: 100px;
-    height: 50px;
-    font-size: 20px;
-}
-
-#btnStay {
+#btnHit #btnStay {
     width: 100px;
     height: 50px;
     font-size: 20px;

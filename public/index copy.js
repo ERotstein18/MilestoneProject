@@ -1,7 +1,15 @@
-//let game = [];
-//let playerOneHand = $('#player-one');
-// let playerTwoHand = $('#player-two');
-//let casino = $('.casino');
+// <!-- <h2>Player One:<span id="playerOne-sum"></span></h2>
+//     <div id="playerOne-card"></div>
+//     <button id="btnHit">Hit</button>
+//     <button id="btnStay">Stay</button>
+//     <p id="playerOneHandSum"></p>
+//     <p id="resultsOne"></p>
+
+//     <h2>Player Two:<span id="playerTwo-sum"></span></h2>
+//     <div id="playerTwo-card"></div>
+//     <button id="btnHit">Hit</button>
+//     <button id="btnStay">Stay</button>
+//     <p id="resultsTwo"></p> -->
 
 var dealerSum = 0;
 var playerOneHandSum = 0;
@@ -193,4 +201,24 @@ function reduceAce(playerOneHandSum, playerOneHandAceCount, playerTwoHandSum, pl
         playerOneHandAceCount -= 1;
     }
     return playerOneHandSum;
+}
+
+this.gameEnded = function(str){
+    this.setMessage(str);
+    this.dealButton.disabled = false;
+    this.hitButton.disabled = true;
+    this.standButton.disabled = true;
+
+}
+
+var initialMoney = [];
+var betAmounts = [];
+
+function playMoney() {
+    let money = initialMoney;
+    let bet = 0;
+    let dealerSum = [];
+    let players = [];
+
+    document.getElementById()
 }

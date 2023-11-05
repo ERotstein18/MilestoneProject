@@ -1,29 +1,17 @@
 var dealerSum = 0;
-// var playerOneHandSum = 0;
-// var playerTwoHandSum = 0;
-
 var players = [];
 var stayCount = 0;
 
 //keeping the track of Ace
 var dealerAceCount = 0;
 
-// var playerOneHandAceCount = 0;
-// var playerTwoHandAceCount = 0;
-
-//keep track of the hidden cards
+//keeping track of the hidden cards
 var hidden;
 var allDecks;
 
 //allowing the player to draw while the player sum <= 21
 var playHit = true;
 
-window.onload = function () {
-    buildDeck();
-    shuffleDeck();
-    createPlayers(3);
-    startGame();
-}
 
 function buildDeck() {
     let ranks = ["Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King",]
@@ -38,6 +26,7 @@ function buildDeck() {
     console.log(allDecks);
 }
 
+//creating player(s)
 function createPlayers(playerCount) {
     for (let i = 1; i <= playerCount; i++){
         var playerOneHand = { Name:'Player ' + i, ID: i, HandSum: 0, AceCount: 0, playHit: true};
@@ -45,6 +34,7 @@ function createPlayers(playerCount) {
     }
 }
 
+//shuffling the deck of cards; switching the values of two random cards
 function shuffleDeck() {
     for (let i = 0; i < allDecks.length; i++){
         let x = Math.floor((Math.random() * allDecks.length));
@@ -127,7 +117,6 @@ function startGame() {
 function stay(playerId) {
     let player = players[playerId - 1];
 
-    //dealerSum = reduceAce(dealerSum, dealerAceCount);
     player.HandSum = reduceAce(player.HandSum, player.AceCount);
 
     player.playHit = false;
@@ -150,6 +139,7 @@ function stay(playerId) {
             else if (dealerSum > 21) {
                 message = `${curPlayer.Name} Win!`;
             }
+            //both the players and the dealer <= 21
             else if (curPlayer.HandSum == dealerSum) {
                 message = "Tie!";
             }
@@ -217,4 +207,36 @@ function reduceAce(playerHandSum, playerAceCount) {
         playerAceCount -= 1;
     }
     return playerHandSum;
+}
+
+var initialMoney = [];
+var minBet = 5;
+var maxBet = 50;
+
+function playMoney(amount) {
+    let money = initialMoney;
+    let bet = 0;
+
+    if (amount < minBet || amount > maxBet) {
+        console.log('Invalid bet amount. Please bet between $5 and $50.');
+        return;
+    }
+    if (amount > money) {
+        console.log('Not enogh money to place that bet.');
+        return;
+    }
+
+    //deduct the bet amount from the player's money
+    money -= amount;
+    bet = amount;
+
+    console.log('You place a bet of $${bet}.');
+    console.log('Remaining money: $ ${money}');
+}
+
+window.onload = function () {
+    buildDeck();
+    shuffleDeck();
+    createPlayers(2);
+    startGame();
 }

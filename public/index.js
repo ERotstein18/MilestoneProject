@@ -1,19 +1,15 @@
-//let game = [];
-//let playerOneHand = $('#player-one');
-// let playerTwoHand = $('#player-two');
-//let casino = $('.casino');
-
 var dealerSum = 0;
-var playerOneHandSum = 0;
-var playerTwoHandSum = 0;
+// var playerOneHandSum = 0;
+// var playerTwoHandSum = 0;
 
 var players = [];
 var stayCount = 0;
 
-var dealerAceCount = 0;
 //keeping the track of Ace
-var playerOneHandAceCount = 0;
-var playerTwoHandAceCount = 0;
+var dealerAceCount = 0;
+
+// var playerOneHandAceCount = 0;
+// var playerTwoHandAceCount = 0;
 
 //keep track of the hidden cards
 var hidden;
@@ -69,7 +65,6 @@ function startGame() {
   
     //dealer
     while (dealerSum < 17) {
-        //creating image tag
         let cardImg = document.createElement("img");
         let card = allDecks.pop();
         cardImg.src = "./deckofcards/" + card + ".png";
@@ -97,8 +92,6 @@ function startGame() {
             cardImg.src = "./deckofcards/" + card + '.png';
             player.HandSum += getValue(card);
             player.AceCount += checkAce(card);
-            //document.getElementById("playerOne-card").append(cardImg);
-    
             playerDiv.append(cardImg);
         }
 
@@ -129,20 +122,6 @@ function startGame() {
         document.getElementById("player-container").append(handSum);
         document.getElementById("player-container").append(result);
     }
-    // console.log('playerOneHandSum --> ', playerOneHandSum);
-    // document.getElementById("btnHit").addEventListener("click", hit);
-    // document.getElementById("btnStay").addEventListener("click",stay);
-
-    // for (let i = 0; i < 2; i++) {
-    //     let cardImg = document.createElement('img');
-    //     let card = allDecks.pop();
-    //     cardImg.src = './deckofcards/' + card + '.png';
-    //     playerTwoHandSum += getValue(card);
-    //     playerTwoHandAceCount += checkAce(card);
-    //     document.getElementById("playerTwo-card").append(cardImg);
-    // }
-    // console.log('playerTwoHandSum --> ', playerTwoHandSum);
-    // document.getElementById("btnHit").addEventListener("click", btnHit);
 }
 
 function stay(playerId) {
@@ -150,11 +129,9 @@ function stay(playerId) {
 
     //dealerSum = reduceAce(dealerSum, dealerAceCount);
     player.HandSum = reduceAce(player.HandSum, player.AceCount);
-    //playerTwoHandSum = reduceAce(playerTwoHandSum, playerTwoHandAceCount);
 
     player.playHit = false;
 
-    
     stayCount += 1;
 
     if (stayCount == players.length) {
@@ -182,14 +159,10 @@ function stay(playerId) {
             else if (curPlayer.HandSum < dealerSum) {
                 message = `${curPlayer.Name} Lose!`;
             }
-
             document.getElementById("hand-sum-" + curPlayer.ID).innerText = curPlayer.HandSum;
             document.getElementById("result-" + curPlayer.ID).innerText = message;
         }
     }
-
-    
-    
 }
 
 function hit(playerId) {
@@ -213,13 +186,11 @@ function hit(playerId) {
     console.log('player.HandSum -->', player.HandSum);
     console.log('player.playHit -->', player.playHit);
 }
- 
+
+//getting the value or count of the card
 function getValue(card) {
     let data = card.split("of");
-    //EightofClover
-    //[0]Eight
-    //[1]Clover
-    let value = data[0]; //Eight
+    let value = data[0];
 
     if (isNaN(value)) {
         if (value == "Ace") {
@@ -229,6 +200,7 @@ function getValue(card) {
     }
     return parseInt(value);
 }
+
 //checking the Ace
 function checkAce(card) {
     if (card[0] == 'Ace') {

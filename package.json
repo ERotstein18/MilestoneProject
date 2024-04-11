@@ -1,0 +1,12 @@
+{
+  "name": "milestoneproject",
+  "version": "1.0.0",
+  "description": "**Card Values**\r  - number cards (2-10) are worth their face value\r  - face cards (King, Queen, Jack) are each worth 10 points\r  - Aces can be worth 1 or 11 points, depending on which value benefits the player more. In this game, if a player stands with an ace, it will count the Ace as 11 if the player card's total sum doesn't exceed 21 points.\r  - \r   **Play**",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

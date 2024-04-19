@@ -4,9 +4,19 @@
   "description": "**Card Values**\r  - number cards (2-10) are worth their face value\r  - face cards (King, Queen, Jack) are each worth 10 points\r  - Aces can be worth 1 or 11 points, depending on which value benefits the player more. In this game, if a player stands with an ace, it will count the Ace as 11 if the player card's total sum doesn't exceed 21 points.\r  - \r   **Play**",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npx tsc"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@types/jest": "^29.5.12",
+    "@types/react": "^18.2.79",
+    "@types/react-dom": "^18.2.25",
+    "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "tslib": "^2.6.2"
+  }
 }
